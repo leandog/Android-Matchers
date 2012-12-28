@@ -5,6 +5,7 @@ import org.hamcrest.TypeSafeMatcher;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 
 public class ActivityCoreMatchers {
 
@@ -18,6 +19,10 @@ public class ActivityCoreMatchers {
 
     public static TypeSafeMatcher<Context> startedWithTheFlag(int flag) {
         return StartedActivityFlagsMatcher.startedWithTheFlag(flag);
+    }
+
+    public static Matcher<Activity> startedForResult(Intent intent, int resultCode) {
+        return StartedActivityForResultWithIntentMatcher.startedForResult(intent, resultCode);
     }
 
     public static Matcher<Activity> startedForResult(Class<? extends Activity> expectedClass, int resultCode) {
